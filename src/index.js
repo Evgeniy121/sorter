@@ -1,10 +1,11 @@
-class Sorter {
+class Sorter  {
     
   constructor() {
-   this.array = [];
-    function comparator (a,b) {
-     return(a-b);
- }
+   this.array = [] ;
+   this.comparator=function (a,b) {
+    return (a-b);
+   }
+ 
   }
  
   add(element) {
@@ -30,8 +31,8 @@ class Sorter {
         temp.push(this.array[indices[i]]);
    }
    temp.sort(this.comparator);
-for (var i=0;i<indices.length;i++){
-    this.array[indices[i]]=temp[i];
+for (var j=0;j<indices.length;j++){
+    this.array[indices[j]]=temp[j];
 }  
 }
 
