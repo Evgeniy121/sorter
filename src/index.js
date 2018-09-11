@@ -1,47 +1,45 @@
 class Sorter {
     
-  constructor() {this.a = [];
-        this.i = 0;
-      
-    // your implementation
+  constructor() {
+   this.array = [];
+    function comparator (a,b) {
+     return(a-b);
+ }
   }
  
   add(element) {
-      this.a[this.i]=element;this.i++;
-    // your implementation
+  this.array.push(element);
   }
 
   at(index) {
-return(this.a[index]);
+  return(this.array[index]);
   }
 
-  get length() {return(this.a.length)
-    // your implementation
+  get length() {
+  return (this.array.length);
   }
 
-  toArray() { return(this.a);
- 
+  toArray() {
+  return(this.array);
   }
 
   sort(indices) {
-   
-  if (indices[0]<indices[indices.length-1]) {var n=indices[0]; var t=indices[indices.length-1];} else {var t=indices[0]; var n=indices[indices.length-1]};
-  for (var p = n; p <= t; p++) {
-    var m_min = this.a[p];
-    for (var j = p + 1; j <= t; j++) {
-        if (this.a[j] < m_min) {
-            var mm = this.a[p];
-            this.a[p] = this.a[j];
-            this.a[j] = mm;
-        }
-    }
-  }
-  
-  }
+   indices.sort();
+   var temp =[];
+   for ( var i=0;i<indices.length; i++ ) {
+        temp.push(this.array[indices[i]]);
+   }
+   temp.sort(this.comparator);
+for (var i=0;i<indices.length;i++){
+    this.array[indices[i]]=temp[i];
+}  
+}
 
   setComparator(compareFunction) {
-    // your implementation
-  }
+   this.comparator=compareFunction;
+  };
 }
 
 module.exports = Sorter;
+
+  
